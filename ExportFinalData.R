@@ -37,6 +37,7 @@ FinalSelection <- c("StateCode",
 CompleteSEDS = read.csv("Complete_SEDS.csv", header = TRUE)
 
 tempSEDS <- CompleteSEDS[2:5]
+tempSEDS <- subset (tempSEDS, StateCode!="X3" & StateCode!="X5")
 tempSEDS <- reshape(tempSEDS, idvar=c("StateCode", "Year"), timevar="MSN", direction="wide")
 finalSEDS <- tempSEDS[FinalSelection]
 
